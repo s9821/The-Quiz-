@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+  <header>
+    <div class="header-item" aria-label="Current score">
+      <span class="label">Score</span>
+      <span class="value" id="score">0</span>
+    </div>
+    <div class="header-item" aria-label="Level indicator">
+      <span class="label">Level</span>
+      <span class="value" id="level">1</span>
+    </div>
+    <div class="header-item" aria-label="Lives remaining">
+      <span class="label">Lives</span>
+      <span class="value" id="lives">3</span>
+    </div>
+    <div class="header-item" aria-label="Timer in seconds">
+      <span class="label">Time</span>
+      <span class="value" id="timer">30</span>
+    </div>
+  </header>
+  <div class="game-container" role="main" aria-label="Quiz game area">
+    <main class="game-main">
+      <h2 class="neon-text" id="question-number">Question 1</h2>
+      <div class="question-text" id="question-text" aria-live="polite" aria-atomic="true">Loading question...</div>
+      <div class="answers" role="list" id="answers-list"></div>
+    </main>
+    <aside class="sidebar" aria-label="Game information and controls">
+      <section class="sidebar-section" aria-labelledby="controls-title">
+        <h3 id="controls-title">Controls</h3>
+        <ul>
+          <li><span class="material-icons icon" aria-hidden="true">touch_app</span> Tap/click an answer to select</li>
+          <li><span class="material-icons icon" aria-hidden="true">space_bar</span> or press Enter to submit</li>
+          <li><span class="material-icons icon" aria-hidden="true">pause_circle_filled</span> Pause/resume with Pause button</li>
+        </ul>
+      </section>
+      <section class="sidebar-section" aria-labelledby="powerups-title">
+        <h3 id="powerups-title">Power-Ups</h3>
+        <ul>
+          <li><span class="material-icons icon" aria-hidden="true">help_outline</span> Hint: Eliminates one wrong answer</li>
+          <li><span class="material-icons icon" aria-hidden="true">skip_next</span> Skip: Move to next question (no points)</li>
+        </ul>
+      </section>
+      <section class="sidebar-section" aria-labelledby="achievements-title">
+        <h3 id="achievements-title">Achievements</h3>
+        <ul id="achievement-list"></ul>
+      </section>
+      <button class="toggle-sidebar" id="toggle-sidebar" aria-expanded="true" aria-controls="sidebar">Collapse Sidebar</button>
+    </aside>
+    <footer class="bottom-bar">
+      <button id="hint-btn" title="Use hint to eliminate a wrong answer"><span class="material-icons">help_outline</span> Hint (3)</button>
+      <button id="skip-btn" title="Skip current question"><span class="material-icons">skip_next</span> Skip (2)</button>
+      <button id="pause-btn" title="Pause or resume the game"><span class="material-icons">pause_circle_filled</span> Pause</button>
+    </footer>
+  </div>
+  <div class="achievement-popup" role="alert" aria-live="assertive" aria-atomic="true" id="achievement-popup" aria-hidden="true">
+    <span class="material-icons">celebration</span>
+    <div id="achievement-message">Achievement unlocked!</div>
+  </div>
+  <div class="modal-overlay" id="pause-modal" role="dialog" aria-modal="true" aria-labelledby="pause-title" tabindex="-1" aria-hidden="true">
+    <div class="modal">
+      <h2 id="pause-title">Game Paused</h2>
+      <button id="resume-btn">Resume</button>
+    </div>
+  </div>
+  <div class="modal-overlay" id="gameover-modal" role="dialog" aria-modal="true" aria-labelledby="gameover-title" tabindex="-1" aria-hidden="true">
+    <div class="modal">
+      <h2 id="gameover-title">Game Over</h2>
+      <p id="final-score-text"></p>
+      <p id="final-level-text"></p>
+      <button id="restart-btn">Play Again</button>
+    </div>
+  </div>
+  <div class="particle-container" id="particle-container" aria-hidden="true"></div>
+<script src="1.js"></script>
+</body>
+</html>
